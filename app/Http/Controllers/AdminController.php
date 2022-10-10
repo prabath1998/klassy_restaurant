@@ -108,4 +108,8 @@ class AdminController extends Controller
         $data = Reservation::all();
         return view('admin.admin_reservation',compact('data'));
      }
+
+     public function viewchef(){
+        return view('admin.admin_chef');
+     }
 }

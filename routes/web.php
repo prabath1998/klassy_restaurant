@@ -39,6 +39,8 @@ Route::post('/reservation',[AdminController::class,'reservation']);
 //show all reservations
 Route::get('/viewreservations',[AdminController::class,'viewreservations']);
 
+Route::get('/viewchef',[AdminController::class,'viewchef']);
+
 Route::get('/deleteuser/{id}',[AdminController::class,'deleteuser']);
 
 Route::get('/redirects',[HomeController::class,'redirects']);
