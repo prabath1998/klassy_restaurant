@@ -143,12 +143,14 @@ class AdminController extends Controller
      public function updatefoodchef(Request $request,$id){
 
         $data = Foodchef::find($id);
-
         $image = $request->image;
+        if($image){
+
         $imagename = time() . '.' . $image->getClientOriginalExtension();
         $request->image->move('chefimage', $imagename);
-
         $data->image = $imagename;
+        }
+
         $data->name = $request->name;
         $data->speciality = $request->speciality;
 
@@ -156,5 +158,12 @@ class AdminController extends Controller
 
         return redirect()->back();
 
+     }
+
+     public function deletechef($id)
+     {
+         $data = Foodchef::find($id);
+         $data->delete();
+         return Redirect()->back();
      }
 }

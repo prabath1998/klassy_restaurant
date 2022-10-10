@@ -101,7 +101,7 @@
                                         Edit
                                     </button>
                                 </a>
-                                <a href="">
+                                <a href="{{ url('/deletechef',$data->id) }}">
                                     <button
                                         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-3">
                                         Delete

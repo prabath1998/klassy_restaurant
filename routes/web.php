@@ -47,6 +47,8 @@ Route::get('/updatechef/{id}',[AdminController::class,'updatechef']);
 
 Route::post('/updatefoodchef/{id}',[AdminController::class,'updatefoodchef']);
 
+Route::get('/deletechef/{id}',[AdminController::class,'deletechef']);
+
 Route::get('/deleteuser/{id}',[AdminController::class,'deleteuser']);
 
 Route::get('/redirects',[HomeController::class,'redirects']);
