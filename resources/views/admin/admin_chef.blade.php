@@ -21,16 +21,16 @@
 
             </div>
             <div>
-                <form action="{{ url('/uploadfood') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/uploadchef') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-6">
-                        <label for="name" class="block mb-2 text-sm text-gray-200">Title</label>
-                        <input type="text" name="title" placeholder="Alex Roberts" required
+                        <label for="name" class="block mb-2 text-sm text-gray-200">Name</label>
+                        <input type="text" name="name" placeholder="Alex Roberts" required
                             class="w-full px-3 py-2 placeholder-gray-300 border text-gray-600 border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                     </div>
                     <div class="mb-6">
-                        <label for="speciality" class="block mb-2 text-sm text-gray-200">Price</label>
-                        <input type="number" name="speciality" placeholder="Burgers" required
+                        <label for="speciality" class="block mb-2 text-sm text-gray-200">Speciality</label>
+                        <input type="text" name="speciality" placeholder="Burgers" required
                             class="w-full px-3 py-2 placeholder-gray-300 border text-gray-600 border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                     </div>
                     <div class="mb-6">

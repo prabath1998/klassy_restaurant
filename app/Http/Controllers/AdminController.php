@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Foodchef;
 use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -111,5 +112,21 @@ class AdminController extends Controller
 
      public function viewchef(){
         return view('admin.admin_chef');
+     }
+
+     //save chef to db
+     public function uploadchef(Request $request){
+        $data = new Foodchef();
+
+        $image = $request->image;
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $request->image->move('chefimage', $imagename);
+
+        $data->image = $imagename;
+        $data->name = $request->name;
+        $data->speciality = $request->speciality;
+
+        $data->save();
+        return redirect()->back();
      }
 }
