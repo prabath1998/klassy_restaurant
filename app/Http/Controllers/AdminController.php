@@ -111,7 +111,8 @@ class AdminController extends Controller
      }
 
      public function viewchef(){
-        return view('admin.admin_chef');
+        $data = Foodchef::all();
+        return view('admin.admin_chef',compact('data'));
      }
 
      //save chef to db
@@ -128,5 +129,32 @@ class AdminController extends Controller
 
         $data->save();
         return redirect()->back();
+     }
+
+     //show update chef form
+     public function updatechef($id,Request $request){
+        $data = Foodchef::find($id);
+
+        return view('admin.update_chef',compact('data'));
+     }
+
+
+     //update chef
+     public function updatefoodchef(Request $request,$id){
+
+        $data = Foodchef::find($id);
+
+        $image = $request->image;
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $request->image->move('chefimage', $imagename);
+
+        $data->image = $imagename;
+        $data->name = $request->name;
+        $data->speciality = $request->speciality;
+
+        $data->save();
+
+        return redirect()->back();
+
      }
 }

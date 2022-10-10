@@ -43,6 +43,10 @@ Route::get('/viewchef',[AdminController::class,'viewchef']);
 
 Route::post('/uploadchef',[AdminController::class,'uploadchef']);
 
+Route::get('/updatechef/{id}',[AdminController::class,'updatechef']);
+
+Route::post('/updatefoodchef/{id}',[AdminController::class,'updatefoodchef']);
+
 Route::get('/deleteuser/{id}',[AdminController::class,'deleteuser']);
 
 Route::get('/redirects',[HomeController::class,'redirects']);
