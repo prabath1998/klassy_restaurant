@@ -24,7 +24,10 @@ class HomeController extends Controller
         if($usertype == '1'){
             return view('admin.admin_home');
         }else{
-            return view('home',compact('data','chefs'));
+            $user_id = Auth::id();
+            $count = Cart::where('user_id',$user_id)->count();
+
+            return view('home',compact('data','chefs','count'));
         }
     }
 
@@ -46,6 +49,12 @@ class HomeController extends Controller
         }else{
             return redirect('/login');
         }
+    }
+
+    public function showcart(Request $request,$id){
+        $count = Cart::where('user_id',$id)->count();
+        $data = Cart::where('user_id',$id)->join('food','carts.food_id','=','food.id')->get();
+        return view('showcart',compact('count','data'));
     }
 
 
