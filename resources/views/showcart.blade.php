@@ -158,7 +158,9 @@ https://templatemo.com/tm-558-klassy-cafe
                             <th scope="col" class="py-3 px-6">
                                 Quantity
                             </th>
-
+                            {{-- <th scope="col" class="py-3 px-6">
+                                Action
+                            </th> --}}
 
 
                         </tr>
@@ -179,6 +181,19 @@ https://templatemo.com/tm-558-klassy-cafe
                                 {{ $data->quantity }}
                             </td>
 
+                            {{-- @foreach ($cart_data as $cart_data)
+                            <td>
+                                <a href="{{ url('/remove',$cart_data->id) }}" class="text-red-500">Remove</a>
+                            </td>
+                            @endforeach --}}
+                        </tr>
+                        @endforeach
+
+                        @foreach ($cart_data as $cart_data)
+                        <tr style="position: relative; top: -50px; right: -1160px">
+                            <td>
+                                <a href="{{ url('/remove',$cart_data->id) }}" class="text-red-500">Remove</a>
+                            </td>
                         </tr>
                         @endforeach
 

@@ -53,6 +53,8 @@ Route::post('/addtocart/{id}',[HomeController::class,'addtocart']);
 
 Route::get('/showcart/{id}',[HomeController::class,'showcart']);
 
+Route::get('/remove/{id}',[HomeController::class,'remove']);
+
 Route::get('/deleteuser/{id}',[AdminController::class,'deleteuser']);
 
 Route::get('/redirects',[HomeController::class,'redirects']);
