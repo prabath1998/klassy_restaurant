@@ -32,6 +32,11 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -190,8 +195,8 @@ https://templatemo.com/tm-558-klassy-cafe
                         @endforeach
 
                         @foreach ($cart_data as $cart_data)
-                        <tr style="position: relative; top: -50px; right: -1160px">
-                            <td>
+                        <tr style="position: relative; top: -70px; right: -1160px;">
+                            <td class="mt-4 p-4">
                                 <a href="{{ url('/remove',$cart_data->id) }}" class="text-red-500">Remove</a>
                             </td>
                         </tr>
@@ -199,11 +204,78 @@ https://templatemo.com/tm-558-klassy-cafe
 
                     </tbody>
                 </table>
+
+                <div align="center" style="padding: 5px">
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Order
+                        Now</button>
+                </div>
+
+
+                <div id="appear">
+                    <div class="container mx-auto">
+                        <div class="max-w-xl p-5 mx-auto my-10 bg-slate-800 rounded-md shadow-sm">
+                            <div>
+                                <form action="{{ url('/updatefood',$data->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="mb-6">
+                                        <label class="block mb-2 text-sm text-gray-200">Name</label>
+                                        <input type="text" name="name" required
+                                            class="w-full px-3 py-2 placeholder-gray-300 border text-gray-600 border-gray-300 rounded-md" />
+                                    </div>
+                                    <div class="mb-6">
+                                        <label class="block mb-2 text-sm text-gray-200">Phone</label>
+                                        <input type="number" name="phone" required
+                                            class="w-full px-3 py-2 placeholder-gray-300 border text-gray-600 border-gray-300 rounded-md" />
+                                    </div>
+
+                                    <div class="mb-6">
+                                        <label class="block mb-2 text-sm text-gray-200">Address</label>
+
+                                        <textarea rows="5" name="address"
+                                            class="w-full px-3 py-2 placeholder-gray-300 border text-gray-600 border-gray-300 rounded-md"
+                                            required></textarea>
+                                    </div>
+
+                                    {{-- old image --}}
+
+                                    <div class="mb-6">
+                                        <button type="submit" id="order"
+                                            class="w-full px-2 py-2 text-white bg-violet-500 rounded-md  focus:bg-violet-600 focus:outline-none">
+                                            Confirm
+                                        </button>
+
+                                        <button type="submit" id="close"
+                                            class="w-full px-2 py-2 text-white bg-red-500 rounded-md  focus:bg-red-600 focus:outline-none mt-2">
+                                            Close
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
 
+    <script type="text/javascript">
+        $("#order").click(
+            function(){
+                $("#appear").show();
+                console.log('clicked');
+            }
+        );
+
+        $("#close").click(
+            function(){
+                $("#appear").hide();;
+                console.log('clicked');
+            }
+        );
+    </script>
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
